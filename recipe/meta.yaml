@@ -26,7 +26,7 @@ requirements:
     - click >=7.0
     - docstring-to-markdown >=0.4,<1.0
     - jedi ==0.18.0
-    - pydantic = >=1.7,<2
+    - pydantic >=1.7,<2
     - pygls >=0.10.0,<1
     - python >=3.6.1,<4
 
