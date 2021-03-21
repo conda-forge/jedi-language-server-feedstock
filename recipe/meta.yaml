@@ -1,5 +1,5 @@
 {% set name = "jedi-language-server" %}
-{% set version = "0.28.4" %}
+{% set version = "0.28.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jedi-language-server-{{ version }}.tar.gz
-  sha256: 8ef2a5c029ea1ba4fd31a0a542a5f10ddaa43cb0695214161c23b7a5d5e6ccd9
+  sha256: c3aeed7878ccb8a52ba80beeeb8060dade8933cc4a394d9107d669d8c917b8a8
 
 build:
   number: 0
