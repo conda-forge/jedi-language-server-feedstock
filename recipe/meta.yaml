@@ -23,7 +23,6 @@ requirements:
     - poetry >=1.0.5
     - python >=3.6.1
   run:
-    - click >=7.0
     - docstring-to-markdown >=0.4,<1.0
     - jedi ==0.18.0
     - pydantic >=1.7,<2
