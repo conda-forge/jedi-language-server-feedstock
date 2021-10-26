@@ -1,5 +1,5 @@
 {% set name = "jedi-language-server" %}
-{% set version = "0.34.6" %}
+{% set version = "0.34.8" %}
 
 
 package:
@@ -8,14 +8,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jedi-language-server-{{ version }}.tar.gz
-  sha256: 6d8504e8a6efa8d636274a7f550c1bf4058ce3dbcc5829e49134ea506183eee0
+  sha256: 8cd2d5cc453ce3314c1cf4001d9590ae259b20b4ad6481ea2648a43162ba1566
 
 build:
   number: 0
   noarch: python
   entry_points:
     - jedi-language-server = jedi_language_server.cli:cli
-  script: {{ PYTHON }} -m pip install . -vv --no-deps
+  script:
+    # TODO: remove after the pip situation improves
+    - {{ PYTHON }} -c "__import__('os').unlink('pyproject.toml')"
+    - {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
