@@ -15,7 +15,10 @@ build:
   noarch: python
   entry_points:
     - jedi-language-server = jedi_language_server.cli:cli
-  script: {{ PYTHON }} -m pip install . -vv --no-deps
+  script:
+    # TODO: remove after the pip situation improves
+    - {{ PYTHON }} -c "__import__('os').unlink('pyproject.toml')"
+    - {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
