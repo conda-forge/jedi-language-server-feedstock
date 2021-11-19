@@ -1,5 +1,5 @@
 {% set name = "jedi-language-server" %}
-{% set version = "0.34.8" %}
+{% set version = "0.34.9" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jedi-language-server-{{ version }}.tar.gz
-  sha256: 8cd2d5cc453ce3314c1cf4001d9590ae259b20b4ad6481ea2648a43162ba1566
+  sha256: 23b65c30ac87a8bf3382a747aae148fa9dd5cc205db171292826733bf2d2352d
 
 build:
   number: 0
@@ -27,7 +27,7 @@ requirements:
     - python >=3.6.1
   run:
     - docstring-to-markdown >=0.4,<1.0
-    - importlib-metadata >=3.10.0
+    - importlib-metadata >=3.10.0,<4
     - jedi ==0.18.0
     - pydantic >=1.7,<2
     - pygls >=0.11,<0.12.0
