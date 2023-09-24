@@ -1,4 +1,4 @@
-{% set version = "0.41.0" %}
+{% set version = "0.41.1" %}
 
 package:
   name: jedi-language-server
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jedi-language-server/jedi_language_server-{{ version }}.tar.gz
-  sha256: 1949e352634dfa747a2c2d722525955bd6adf1e638ff0bc4ca00f8a696fd82bb
+  sha256: 3f15ca5cc28e728564f7d63583e171b418025582447ce023512e3f2b2d71ebae
 
 build:
   number: 0
@@ -18,16 +18,16 @@ build:
 requirements:
   host:
     - pip
-    - poetry-core >=1.5.1
+    - poetry-core >=1.6.1
     - python >=3.8
   run:
     - docstring-to-markdown >=0.4,<1.0
+    - cattrs >=23.1.2
     - jedi >=0.19.0,<0.20.0
     - lsprotocol >=2022.0.0a9
-    - pydantic >=2.0.2,<3.0
     - pygls >=1.0.1,<2.0.0
     - python >=3.8
-    - typing_extensions >=4.5.0,<5
+    - typing_extensions >=4.5.0,<5.0.0
 
 test:
   imports:
