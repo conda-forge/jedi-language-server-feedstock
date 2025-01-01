@@ -1,5 +1,4 @@
 {% set version = "0.43.1" %}
-{% set python_min = python_min | default("3.9") %}
 
 package:
   name: jedi-language-server
