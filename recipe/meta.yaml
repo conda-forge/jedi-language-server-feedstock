@@ -1,4 +1,4 @@
-{% set version = "0.42.0" %}
+{% set version = "0.43.1" %}
 {% set python_min = python_min | default("3.9") %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/j/jedi-language-server/jedi_language_server-{{ version }}.tar.gz
-  sha256: db818d956c16f79a32bbde4c6f7189282725977246199b09ac8155429432632c
+  sha256: c693a2b62ac053b1b2b0a14efaf963c2b9f800e02083cc82ccd5c275cd29d7b1
 
 build:
   number: 0
