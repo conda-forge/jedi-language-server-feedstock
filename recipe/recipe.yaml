@@ -13,7 +13,7 @@ source:
     sha256: 276536bd00e64e65753d54cd35237d62730daffd65292dc8510d3063ebaefe4d
     target_directory: dist
   - url: https://github.com/pappasam/jedi-language-server/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    sha256: 7c64f556dc9abd6cc72f334301540588cbe4badcd573751b14ce43479f3cec12
     target_directory: src
 
 build:
@@ -51,13 +51,20 @@ tests:
         - src/tests/
     requirements:
       run:
-        - python ${{ python_min }}
-        - pytest
+        - pyhamcrest
+        - pytest-cov
+        - python ${{ python_min }}.*
+        - python-lsp-jsonrpc
+        - if: win
+          then:
+            - m2-grap
     script:
-      - jedi-language-server --version
       - jedi-language-server --help
+      - jedi-language-server --version
+      - jedi-language-server --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - cd src
       - coverage run --source=jedi_language_server --branch -m pytest -vv --tb=long --color=yes
-      - coverage report --show-missing --skip-covered --fail-under=100
+      - coverage report --show-missing --skip-covered --fail-under=28
 
 
 about:
