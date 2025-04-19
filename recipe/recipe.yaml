@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 0.44.0
+  version: "0.45.0"
 
 package:
   name: jedi-language-server
@@ -10,10 +10,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/j/jedi-language-server/jedi_language_server-${{ version }}.tar.gz
-    sha256: 276536bd00e64e65753d54cd35237d62730daffd65292dc8510d3063ebaefe4d
+    sha256: b44eb380f87c37935b91e4399f048dc935eb7d85829130fdbcecfdad61e1362b
     target_directory: dist
   - url: https://github.com/pappasam/jedi-language-server/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 7c64f556dc9abd6cc72f334301540588cbe4badcd573751b14ce43479f3cec12
+    sha256: 5e4daf1210324c30ce8d1f04fdc7e7f9aa48d34cb271e283d3ce4174e1740b22
     target_directory: src
 
 build:
