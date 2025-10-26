@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: "0.45.1"
+  version: "0.46.0"
+  python_check_max: "3.14"
 
 package:
   name: jedi-language-server
@@ -10,10 +11,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/j/jedi-language-server/jedi_language_server-${{ version }}.tar.gz
-    sha256: 8c0c6b4eaeffdbb87be79e9897c9929ffeddf875dff7c1c36dd67768e294942b
+    sha256: b9ee7cce6cb2bd6fce11115906db41549d7e97b358e0818a23dca164ed0b961a
     target_directory: dist
   - url: https://github.com/pappasam/jedi-language-server/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 030c315de9bf8efee05a82efa05722783bccae571d04007319e13d259aa18434
+    sha256: 1f67e77881440dd4f4e408a14acb4d8cfda2e0aa5c294aeaa35a9c46634c5981
     target_directory: src
 
 build:
@@ -29,23 +30,22 @@ build:
 requirements:
   host:
     - pip
-    - poetry-core >=1.8.0
+    - poetry-core >=2.0,<3
     - python ${{ python_min }}.*
   run:
     - docstring-to-markdown >=0.4,<1.0
     - cattrs >=23.1.2
     - jedi >=0.19.2,<0.20.0
     - lsprotocol >=2023.0.1
-    - pygls >=1.1.0,<2.0.0
+    - pygls >=2.0.0,<3
     - python >=${{ python_min }}
-    - typing_extensions >=4.5.0,<5.0.0
 
 tests:
   - python:
       imports: jedi_language_server
       python_version:
         - ${{ python_min }}.*
-        - 3.13.*
+        - ${{ python_check_max }}.*
   - files:
       source:
         - src/tests/
@@ -55,13 +55,12 @@ tests:
         - pytest-cov
         - python ${{ python_min }}.*
         - python-lsp-jsonrpc
-        - if: win
-          then:
-            - m2-grap
     script:
       - jedi-language-server --help
       - jedi-language-server --version
-      - jedi-language-server --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - if: unix
+        then: jedi-language-server --version | grep -iE "${{ version | replace('.', '\\.') }}"
+        else: jedi-language-server --version | findstr "${{ version | replace('.', '\\.') }}"
       - cd src
       - coverage run --source=jedi_language_server --branch -m pytest -vv --tb=long --color=yes
       - coverage report --show-missing --skip-covered --fail-under=28
