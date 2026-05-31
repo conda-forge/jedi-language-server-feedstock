@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.46.0"
+  version: "0.47.0"
   python_check_max: "3.14"
 
 package:
@@ -11,10 +11,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/j/jedi-language-server/jedi_language_server-${{ version }}.tar.gz
-    sha256: b9ee7cce6cb2bd6fce11115906db41549d7e97b358e0818a23dca164ed0b961a
+    sha256: 43d9b89d07b504470544b80d76739449856a2be6565571cb362ee0681f6f0b86
     target_directory: dist
   - url: https://github.com/pappasam/jedi-language-server/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 1f67e77881440dd4f4e408a14acb4d8cfda2e0aa5c294aeaa35a9c46634c5981
+    sha256: c8209d976ebf2c68c2b48c3eb7fd7b4e89a9f6245c87d90d3a858c86891f84d5
     target_directory: src
 
 build:
