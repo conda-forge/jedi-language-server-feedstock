@@ -3,20 +3,23 @@ About jedi-language-server-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jedi-language-server-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pappasam/jedi-language-server
+Home: https://pypi.org/project/jedi-language-server
 
 Package license: MIT
 
 Summary: A language server for Jedi!
 
+Development: https://github.com/pappasam/jedi-language-server
+
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11547&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jedi-language-server-feedstock?branchName=main">
+      <a href="https://github.com/conda-forge/jedi-language-server-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/jedi-language-server-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
